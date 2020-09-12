@@ -21,7 +21,7 @@ public class PoliticalController {
     }
 
     @GetMapping("/findbyId/{id}")
-    public Political showbyId(@PathVariable String id){
+    public Political showbyId(@PathVariable("id") String id){
         return politicalService.showbyId(Integer.parseInt(id));
     }
 
@@ -29,5 +29,15 @@ public class PoliticalController {
     @PostMapping("/insert")
     public void Insert(@RequestBody Political political){
         politicalService.Insert(political);
+    }
+
+    @PutMapping("/update/{id}")
+    public void update(@PathVariable("id")String id ,@RequestBody Political political){
+        politicalService.update(Integer.parseInt(id),political);
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public void delete(@PathVariable("id") String id){
+        politicalService.delete(Integer.parseInt(id));
     }
 }
