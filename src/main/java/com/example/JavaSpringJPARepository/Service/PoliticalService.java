@@ -28,8 +28,8 @@ public class PoliticalService {
 
     public void update(int id ,Political political){
         Political pm = politicalRepository.findById(id).get();
-        pm.setFirst_name(political.getFirst_name());
-        pm.setLast_name(political.getLast_name());
+        pm.setFirstName(political.getFirstName());
+        pm.setLastName(political.getLastName());
         pm.setPartyName(political.getPartyName());
         pm.setPosition(political.getPosition());
         politicalRepository.save(pm);
@@ -39,5 +39,8 @@ public class PoliticalService {
         politicalRepository.deleteById(id);
     }
 
+    public List<Political> findByName(String name){
+        return politicalRepository.findByfirstName(name);
+    }
 
 }

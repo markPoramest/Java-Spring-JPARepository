@@ -40,4 +40,9 @@ public class PoliticalController {
     public void delete(@PathVariable("id") String id){
         politicalService.delete(Integer.parseInt(id));
     }
+
+    @GetMapping("/findbyFirstName/{name}")
+    public List<Political> findbyFirstName(@PathVariable("name") String name){
+        return  politicalService.findByName(name);
+    }
 }
